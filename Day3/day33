@@ -1,0 +1,14 @@
+for file in `ls *.txt` 
+do
+	nameOfFile=`echo $file | awk -F. '{print $1}'`;
+	
+	echo "Checking for already existing directory";
+	if [ -d $nameOfFile ]
+	then
+		rm -R $nameOfFile;
+	else
+		mkdir $nameOfFile;
+	fi
+	cp -r $file $nameOfFile;
+
+
